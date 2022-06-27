@@ -109,7 +109,7 @@ int interval=0;
     }
 
 
-
+// kinda seems to be working wrong, the time is in magnitudes of others...
     public static void sortHibbard(int[] arrayToSort) {
         int n = arrayToSort.length;
         int j;
