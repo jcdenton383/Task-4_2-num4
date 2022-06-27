@@ -47,18 +47,40 @@ public class ShellSort {
 
 
     public static void sortPaperStansevich(int[] arrayToSort) {
-        int n = arrayToSort.length;
+        int inner, outer;
+int valueToInsert;
+int interval=0;
+        
+        while (interval < (arrayToSort.length) /3) {
 
-        for (int gap = n / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < n; i++) {
-                int key = arrayToSort[i];
-                int j = i;
-                while (j >= gap && arrayToSort[j - gap] > key) {
-                    arrayToSort[j] = arrayToSort[j - gap];
-                    j -= gap;
-                }
-                arrayToSort[j] = key;
+            interval = interval * 3 + 1;
+        }
+
+        while (interval > 0) {
+
+
+            for (outer = interval; outer < arrayToSort.length-1; outer++);
+            {
+
+                
+                valueToInsert = arrayToSort[outer];
+                inner = outer;
+
+               
+                while (inner > interval - 1 && arrayToSort[inner - interval] >= valueToInsert) {
+
+                    arrayToSort[inner] = arrayToSort[inner - interval];
+                inner = inner - interval;
             }
+
+               
+                arrayToSort[inner] = valueToInsert;
+
+            }
+
+           
+            interval = (interval - 1) / 3;
+
         }
 
     }
