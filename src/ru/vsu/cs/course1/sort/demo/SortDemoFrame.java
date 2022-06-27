@@ -96,6 +96,17 @@ public class SortDemoFrame extends JFrame {
         buttonQuickSort.addActionListener(actionEvent -> sortDemo(QuickSort::sort));
         buttonHeapSort.addActionListener(actionEvent -> sortDemo(HeapSort::sort));
         buttonRadixSort.addActionListener(actionEvent -> sortDemo((arr) -> RadixSort.sort(arr, 10)));
+        
+        shellSortButton.addActionListener(actionEvent -> {
+                    try {
+                        int[] arr = JTableUtils.readIntArrayFromJTable(tableArr);
+                        ShellSort.sortStock(arr);
+                        JTableUtils.writeArrayToJTable(tableArr, arr);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+        });
 
         buttonWarmup.addActionListener(actionEvent -> warmupSorts());
         buttonPerformanceTest1.addActionListener(actionEvent -> {
